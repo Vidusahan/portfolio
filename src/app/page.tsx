@@ -9,6 +9,7 @@ import { NextTeaser } from '@/components/sections/NextTeaser';
 import { Footer } from '@/components/layout/Footer';
 import { MeshGradient } from '@/components/layout/MeshGradient';
 import { Atmosphere } from '@/components/layout/Atmosphere';
+import { CustomCursor } from '@/components/cursor/CustomCursor';
 
 export default function HomePage() {
   const [revealed, setRevealed] = useState(false);
@@ -19,6 +20,7 @@ export default function HomePage() {
         Skip to content
       </a>
 
+      <CustomCursor />
       <Atmosphere />
       <MeshGradient />
 
