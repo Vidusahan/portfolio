@@ -4,7 +4,7 @@ import { useEffect, useRef, type CSSProperties } from 'react';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 
 const GRID_SIZE = 46;
-const HIGHLIGHT_RADIUS = 120;
+const HIGHLIGHT_RADIUS = 150;
 
 const DIM_GRID_IMAGE =
   'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)';
