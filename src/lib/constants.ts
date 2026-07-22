@@ -17,8 +17,8 @@ export const ROLES = [
 export const NAV_LINKS = [
   { label: 'Home', href: '#main' },
   { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#next' },
-  { label: 'Projects', href: '#next' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Projects', href: '#projects' },
   { label: 'Contact', href: '#next' },
 ] as const;
 
@@ -64,8 +64,6 @@ export const ABOUT_STATS: AboutStat[] = [
 
 
 export const UPCOMING_SECTIONS = [
-  'TECH UNIVERSE',
-  'PROJECTS',
   'RESEARCH',
   'EXPERIENCE',
   'AI ASSISTANT',
