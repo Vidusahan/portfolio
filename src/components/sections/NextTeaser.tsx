@@ -7,12 +7,12 @@ export function NextTeaser() {
       className="relative z-[2] border-t border-border bg-bg-2 px-[6vw] py-[110px] pb-[130px] text-center"
     >
       <div className="mb-4 font-mono text-xs tracking-[0.3em] text-text-dim uppercase">
-        Phase 04 <b className="text-cyan font-medium">·</b> Projects
+        Phase 05 <b className="text-cyan font-medium">·</b> Research
       </div>
       <h2 className="mx-auto mb-[34px] max-w-[640px] font-display text-[clamp(1.4rem,3vw,2.1rem)] leading-[1.4] font-medium text-text-dim">
-        Loader, hero, about, tech universe, and projects are live.{' '}
-        <b className="font-semibold text-text">Research and Experience</b> are being
-        built next in the same visual language.
+        Loader through research are all live.{' '}
+        <b className="font-semibold text-text">Experience and the AI assistant</b> are
+        being built next in the same visual language.
       </h2>
       <div className="mx-auto flex max-w-[620px] flex-wrap justify-center gap-2.5">
         {UPCOMING_SECTIONS.map((label) => (

@@ -7,6 +7,7 @@ import { Hero } from '@/components/hero/Hero';
 import { About } from '@/components/about/About';
 import { TechUniverse } from '@/components/tech/TechUniverse';
 import { ProjectsSection } from '@/components/projects/ProjectsSection';
+import { ResearchSection } from '@/components/research/ResearchSection';
 import { NextTeaser } from '@/components/sections/NextTeaser';
 import { Footer } from '@/components/layout/Footer';
 import { MeshGradient } from '@/components/layout/MeshGradient';
@@ -36,6 +37,7 @@ export default function HomePage() {
         <About />
         <TechUniverse onTechSelect={setTechFilter} />
         <ProjectsSection techFilter={techFilter} onClearTechFilter={() => setTechFilter(null)} />
+        <ResearchSection />
         <NextTeaser />
       </main>
 
