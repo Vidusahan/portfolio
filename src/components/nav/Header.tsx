@@ -23,20 +23,20 @@ export function Header() {
           VP
         </a>
 
-        <nav className="hidden gap-0.5 md:flex" aria-label="Primary">
+        <nav className="hidden gap-0.5 lg:flex" aria-label="Primary">
           {NAV_LINKS.map((link, i) => (
             <a
               key={link.label}
               href={link.href}
               className={clsx(
-                'group relative px-4 py-2.5 text-[13px] font-medium text-text-dim transition-colors hover:text-text',
+                'group relative px-3 py-2.5 text-[13px] font-medium text-text-dim transition-colors hover:text-text',
                 i === 0 && 'text-text',
               )}
             >
               {link.label}
               <span
                 className={clsx(
-                  'absolute right-4 bottom-1.5 left-4 h-px origin-left scale-x-0 bg-cyan transition-transform duration-[350ms] ease-signature group-hover:scale-x-100',
+                  'absolute right-3 bottom-1.5 left-3 h-px origin-left scale-x-0 bg-cyan transition-transform duration-[350ms] ease-signature group-hover:scale-x-100',
                   i === 0 && 'scale-x-100',
                 )}
               />
@@ -44,13 +44,13 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-2 font-mono text-[11px] tracking-[0.05em] text-text-dim md:flex">
+        <div className="hidden items-center gap-2 font-mono text-[11px] tracking-[0.05em] text-text-dim lg:flex">
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald shadow-[0_0_8px_var(--color-emerald)]" />
           Open to work
         </div>
 
         <button
-          className="relative h-10 w-10 rounded-lg border border-border md:hidden"
+          className="relative h-10 w-10 rounded-lg border border-border lg:hidden"
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((v) => !v)}
