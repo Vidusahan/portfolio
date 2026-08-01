@@ -8,6 +8,7 @@ import { About } from '@/components/about/About';
 import { TechUniverse } from '@/components/tech/TechUniverse';
 import { ProjectsSection } from '@/components/projects/ProjectsSection';
 import { ResearchSection } from '@/components/research/ResearchSection';
+import { ExperienceSection } from '@/components/experience/ExperienceSection';
 import { NextTeaser } from '@/components/sections/NextTeaser';
 import { Footer } from '@/components/layout/Footer';
 import { MeshGradient } from '@/components/layout/MeshGradient';
@@ -38,6 +39,7 @@ export default function HomePage() {
         <TechUniverse onTechSelect={setTechFilter} />
         <ProjectsSection techFilter={techFilter} onClearTechFilter={() => setTechFilter(null)} />
         <ResearchSection />
+        <ExperienceSection />
         <NextTeaser />
       </main>
 
