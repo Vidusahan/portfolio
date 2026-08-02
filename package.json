@@ -1,11 +1,11 @@
 {
   "name": "vidusahan-portfolio",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "private": true,
   "description": "Vidusahan Perera — AI Engineer / Automation Engineer / ML Engineer / Full Stack Developer portfolio.",
   "scripts": {
-    "dev": "next dev --turbopack",
-    "dev:webpack": "next dev",
+    "dev": "next dev",
+    "dev:turbo": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
