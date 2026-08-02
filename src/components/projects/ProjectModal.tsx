@@ -1,8 +1,9 @@
 'use client';
 
-import { useEffect, useRef, type MutableRefObject, type ReactNode } from 'react';
+import { useRef, type MutableRefObject, type ReactNode } from 'react';
 import { X, Github, ExternalLink } from 'lucide-react';
 import { PROJECT_CATEGORY_COLOR, PROJECT_CATEGORY_LABEL, type Project } from '@/lib/projects';
+import { useModalBehavior } from '@/hooks/useModalBehavior';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -12,27 +13,8 @@ interface ProjectModalProps {
 
 export function ProjectModal({ project, onClose, returnFocusRef }: ProjectModalProps) {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
-  const dialogRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (!project) return;
-
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    closeButtonRef.current?.focus();
-
-    function onKeyDown(e: KeyboardEvent) {
-      if (e.key === 'Escape') onClose();
-    }
-    window.addEventListener('keydown', onKeyDown);
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      window.removeEventListener('keydown', onKeyDown);
-      returnFocusRef.current?.focus();
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [project]);
+  useModalBehavior(!!project, onClose, closeButtonRef, returnFocusRef);
 
   if (!project) return null;
 
@@ -48,7 +30,7 @@ export function ProjectModal({ project, onClose, returnFocusRef }: ProjectModalP
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div ref={dialogRef} className="mx-auto min-h-full max-w-[860px] px-6 py-20 sm:px-10">
+      <div className="mx-auto min-h-full max-w-[860px] px-6 py-20 sm:px-10">
         <button
           ref={closeButtonRef}
           onClick={onClose}

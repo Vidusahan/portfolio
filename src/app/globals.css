@@ -153,6 +153,49 @@
   }
 }
 
+/* Syntax highlighting for MDX code blocks (rehype-highlight / highlight.js classes).
+   Hand-rolled to match the site's design tokens instead of importing a package theme. */
+.hljs {
+  color: var(--color-text-dim);
+  background: transparent;
+}
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-section,
+.hljs-link {
+  color: var(--color-purple);
+}
+.hljs-string,
+.hljs-title,
+.hljs-name,
+.hljs-type,
+.hljs-attribute,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: var(--color-emerald);
+}
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion,
+.hljs-meta {
+  color: var(--color-text-dim);
+  opacity: 0.7;
+}
+.hljs-number,
+.hljs-regexp,
+.hljs-built_in,
+.hljs-builtin-name {
+  color: var(--color-cyan);
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: 600;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

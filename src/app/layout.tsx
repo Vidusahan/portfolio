@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
 import { Space_Grotesk, Inter, JetBrains_Mono } from 'next/font/google';
 import { SITE } from '@/lib/constants';
+import { ChromeProvider } from '@/components/layout/ChromeProvider';
 import './globals.css';
 
 const spaceGrotesk = Space_Grotesk({
@@ -48,7 +50,7 @@ const jsonLd = {
   url: SITE.url,
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
@@ -58,7 +60,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <ChromeProvider>{children}</ChromeProvider>
+      </body>
     </html>
   );
 }

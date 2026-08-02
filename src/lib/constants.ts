@@ -15,13 +15,14 @@ export const ROLES = [
 ] as const;
 
 export const NAV_LINKS = [
-  { label: 'Home', href: '#main' },
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Research', href: '#research' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Contact', href: '#next' },
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/#about' },
+  { label: 'Skills', href: '/#skills' },
+  { label: 'Projects', href: '/#projects' },
+  { label: 'Research', href: '/#research' },
+  { label: 'Experience', href: '/#experience' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contact', href: '/#next' },
 ] as const;
 
 export const PALETTE = ['#4eeaff', '#9b6bff', '#35f1ae'] as const;
@@ -65,9 +66,4 @@ export const ABOUT_STATS: AboutStat[] = [
 ];
 
 
-export const UPCOMING_SECTIONS = [
-  'RESEARCH',
-  'EXPERIENCE',
-  'AI ASSISTANT',
-  'CONTACT',
-] as const;
+export const UPCOMING_SECTIONS = ['AI ASSISTANT', 'CONTACT'] as const;

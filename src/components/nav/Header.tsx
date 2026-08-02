@@ -18,7 +18,7 @@ export function Header() {
           scrolled && 'border-border bg-bg/72 backdrop-blur-[16px] backdrop-saturate-[140%]',
         )}
       >
-        <a href="#main" className="flex items-center gap-[9px] font-display text-[19px] font-semibold tracking-[0.02em]">
+        <a href="/" className="flex items-center gap-[9px] font-display text-[19px] font-semibold tracking-[0.02em]">
           <span className="h-[6px] w-[6px] rounded-full bg-cyan shadow-[0_0_10px_var(--color-cyan)]" />
           VP
         </a>
