@@ -1,0 +1,35 @@
+export const meta = {
+  title: 'Why detection models overfit to one deepfake generator',
+  date: '2026-01-15',
+  category: 'ai',
+  excerpt:
+    'A model that hits 98% accuracy in testing can still fail badly in the real world — here\u2019s the gap I kept running into.',
+  readingMinutes: 6,
+};
+
+Most of the deepfake-audio papers I read when I started this research reported strong accuracy numbers — often 95%+ — on their evaluation set. Mine did too, at first. Then I ran the same model against a synthesis method it hadn't seen during training, and accuracy dropped more than 15 points.
+
+That gap is the actual research problem, and it's easy to miss if you only ever evaluate on data that looks like your training set.
+
+## Why this happens
+
+Every voice-cloning tool leaves behind subtle artifacts — a particular kind of spectral smoothing, a specific noise floor, patterns in how it handles silence. A classifier trained on outputs from one or two generators can learn to key on *those specific artifacts* instead of learning what makes synthetic speech different from real speech in general.
+
+That's textbook overfitting, but it's sneaky here because the model still looks good on a held-out test *split* — because that split usually comes from the same generators as training.
+
+## What actually helped
+
+```python
+def evaluate_generalization(model, held_out_generators):
+    """Held-out generators must be entirely absent from training."""
+    results = {}
+    for name, dataset in held_out_generators.items():
+        results[name] = model.evaluate(dataset)
+    return results
+```
+
+The single highest-leverage change was simple: hold out entire generators, not just a random split of examples. It's a less flattering number to report, but it's the one that actually predicts real-world performance.
+
+## Where this leaves things
+
+Training across more generators helps, but it's not a complete fix — new voice-cloning tools ship constantly, and a detector can't train on tools that don't exist yet. The more durable direction is learning representations that capture something closer to "what real human speech physically sounds like," rather than "what these specific fake-speech artifacts look like." That's the direction I'm exploring next.

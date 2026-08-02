@@ -1,0 +1,34 @@
+export const meta = {
+  title: 'The hard part of automating model retraining isn\u2019t automation',
+  date: '2025-11-02',
+  category: 'engineering',
+  excerpt:
+    'Building the pipeline was the easy part. Deciding what "good enough to ship" means automatically was the real problem.',
+  readingMinutes: 5,
+};
+
+I automated a model retraining pipeline this year — scheduled retraining, containerized training jobs, automated evaluation, gated promotion. On paper it's a fairly standard MLOps setup. In practice, the infrastructure work was maybe a third of the actual effort.
+
+## The part nobody warns you about
+
+The hard part was defining, precisely enough for a machine to trust it, what "the new model is better" actually means.
+
+A naive version — compare overall accuracy, promote if higher — will happily ship a model that improved on average while quietly regressing on a specific slice that matters. In my case, that slice was a set of edge-case inputs the business cared about disproportionately more than their share of the dataset.
+
+## What the gate actually checks
+
+```python
+def should_promote(candidate, incumbent, critical_slices):
+    if candidate.overall_accuracy < incumbent.overall_accuracy:
+        return False
+    for slice_name in critical_slices:
+        if candidate.accuracy_on(slice_name) < incumbent.accuracy_on(slice_name) - TOLERANCE:
+            return False
+    return True
+```
+
+Nothing exotic — just accuracy checks. The work was in *deciding which slices counted as critical* and getting agreement on that before any code got written, not in writing the check itself.
+
+## Takeaway
+
+Automating a decision doesn't remove the need to make the decision well — it just moves the moment you have to think carefully about it earlier, into the design of the gate, instead of into a human reviewing each model by hand. If anything that raises the stakes on getting the criteria right, since nobody's there to catch an edge case at the last minute.

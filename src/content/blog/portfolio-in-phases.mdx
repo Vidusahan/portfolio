@@ -1,0 +1,30 @@
+export const meta = {
+  title: 'Shipping a portfolio in phases instead of all at once',
+  date: '2026-02-20',
+  category: 'career',
+  excerpt:
+    'The scope for this site was enormous. Here\u2019s why breaking it into nine versioned phases worked better than trying to build it all in one pass.',
+  readingMinutes: 4,
+};
+
+The original plan for this site covered a loading sequence, a 3D hero, an entire Three.js "tech universe," a filterable project gallery, a research write-up, three career timelines, certifications, an MDX blog, and an AI assistant — all before writing a line of code.
+
+Building all of that in one pass would have produced something big, shallow, and hard to review. So it shipped as nine separate, versioned phases instead.
+
+## What that actually looked like
+
+Each phase became its own version bump and changelog entry:
+
+- Phase 01 — loading sequence + hero
+- Phase 02 — About, with an animated node-graph portrait
+- Phase 03 — the Tech Universe, in Three.js
+- Phase 04 — Projects, wired to filter by whatever tech you click in the universe
+- Phase 05 — this research write-up, as an interactive pipeline diagram
+- Phase 06 — Experience, Education, and IEEE Leadership as tabbed timelines
+- Phase 07 — Certifications and this blog
+
+## Why it worked better
+
+Design tokens (colors, fonts, easing curves) got defined once, in Phase 01, and every later phase just used them — nothing needed re-theming or reconciling afterward. Each phase could also be reviewed and actually run (`npm run dev`) on its own before the next one started, instead of discovering a problem after ten sections were already built on top of it.
+
+The tradeoff is obvious: it takes longer to see the "whole" site. But the whole site was never really the point — a portfolio that's finished in pieces beats one that's 90% done in every section and fully working in none of them.
