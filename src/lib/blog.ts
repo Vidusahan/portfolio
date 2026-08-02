@@ -1,31 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import type { BlogPostMeta, BlogPostSummary } from './blog-shared';
 
-export type BlogCategory = 'ai' | 'engineering' | 'career';
-
-export const BLOG_CATEGORY_LABEL: Record<BlogCategory, string> = {
-  ai: 'AI',
-  engineering: 'Engineering',
-  career: 'Career',
-};
-
-export const BLOG_CATEGORY_COLOR: Record<BlogCategory, string> = {
-  ai: '#4eeaff',
-  engineering: '#9b6bff',
-  career: '#35f1ae',
-};
-
-export interface BlogPostMeta {
-  title: string;
-  date: string;
-  category: BlogCategory;
-  excerpt: string;
-  readingMinutes: number;
-}
-
-export interface BlogPostSummary extends BlogPostMeta {
-  slug: string;
-}
+export type { BlogCategory, BlogPostMeta, BlogPostSummary } from './blog-shared';
+export { BLOG_CATEGORY_LABEL, BLOG_CATEGORY_COLOR } from './blog-shared';
 
 const CONTENT_DIR = path.join(process.cwd(), 'src', 'content', 'blog');
 

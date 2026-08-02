@@ -3,7 +3,7 @@
 import { useMemo, useState } from 'react';
 import clsx from 'clsx';
 import { Search } from 'lucide-react';
-import { BLOG_CATEGORY_LABEL, type BlogCategory, type BlogPostSummary } from '@/lib/blog';
+import { BLOG_CATEGORY_LABEL, type BlogCategory, type BlogPostSummary } from '@/lib/blog-shared';
 import { BlogCard } from '@/components/blog/BlogCard';
 
 const CATEGORIES: Array<BlogCategory | 'all'> = ['all', 'ai', 'engineering', 'career'];

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { BLOG_CATEGORY_COLOR, BLOG_CATEGORY_LABEL, type BlogPostSummary } from '@/lib/blog';
+import { BLOG_CATEGORY_COLOR, BLOG_CATEGORY_LABEL, type BlogPostSummary } from '@/lib/blog-shared';
 
 export function BlogCard({ post }: { post: BlogPostSummary }) {
   const color = BLOG_CATEGORY_COLOR[post.category];
